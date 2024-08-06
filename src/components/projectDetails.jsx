@@ -1,4 +1,4 @@
-export default function ProjectDetails({ project }) {
+export default function ProjectDetails({ project, onDelete }) {
   const formattedDate = new Date(project.dueDate).toLocaleDateString("en-US", {
     year: "numeric",
     month: "short",
@@ -10,7 +10,10 @@ export default function ProjectDetails({ project }) {
       <header className="pb-4 mb-4 border-b-2 border-stone-300">
         <div className="flex items-center justify-between">
           <h1 className="text-3xl font-bold mb-3">{project.title}</h1>
-          <button className="px-4 py-2 text-xs md:text-base rounded-md bg-stone-700 text-stone-400 hover:bg-stone-600 hover:text-stone-100">
+          <button
+            className="px-4 py-2 text-xs md:text-base rounded-md bg-stone-700 text-stone-400 hover:bg-stone-600 hover:text-stone-100"
+            onClick={onDelete}
+          >
             Delete
           </button>
         </div>
